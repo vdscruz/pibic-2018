@@ -1,71 +1,127 @@
-%% Template para dissertação/tese na classe UFPEthesis
-%% versão 0.9.2
-%% (c) 2005 Paulo G. S. Fonseca
-%% www.cin.ufpe.br/~paguso/ufpethesis
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{verbatim}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{physics}
+\usepackage{siunitx}
+\usepackage[top=2cm, bottom=2cm, left=3cm, right=2cm]{geometry}
+\usepackage{makeidx}
+\input{commands}
+\usepackage[tocflat]{tocstyle}
+\usetocstyle{standard}
 
-\documentclass{ufpethesis}
 
-%% Preâmbulo:
-%% coloque aqui o seu preâmbulo LaTeX, i.e., declaração de pacotes,
-%% (re)definições de macros, medidas, etc.
 
-%% Identificação:
+\makeatletter
+\renewcommand\tableofcontents{
+  \null\hfill\textbf{\Large\contentsname}\hfill\null\par
+  \@mkboth{\MakeUppercase\contentsname}{\MakeUppercase\contentsname}
+  \@starttoc{toc}
+}
+\makeatother
 
-\university{Universidade Federal de Sergipe}
-
-\address{Este projeto é desenvolvido de forma voluntária - PICVOL}
-
-\institute{Pró-Reitoria de Pós-Graduação e Pesquisa}
-
-\department{Coordenação de Pesquisa}
-
-\program{rograma Institucional de Bolsas de Iniciação Científica(PIBIC) - COPES/UFS\\
-Relatório Parcial\\
-Período: 08/2015 a 01/2016}
-
-\majorfield{Matemática}
-
-\title{Controle Ótimo em Terapias de Câncer}
-
+\author{COPES - UFS}
+\title{Modelo_Relatorio_Parcial}
 \date{}
-
-\author{Bolsista: Vinícius dos Santos Cruz\\
-Matrícula: }
-
-\adviser{Paulo de Souza Rabelo}
-
-\coadviser{Gastão}
-
+%\Marginsize marginsize { 1 centímetro } {2 } { 4 em em} { 6 pt } 
 
 \begin{document}
 
-%% Parte pré-textual
-\frontmatter
+\begin{figure}[!h]
+    \centering
+    \includegraphics[scale=1.2]{ufs.png}
 
-% Folha de rosto
-\frontpage
+  \end{figure}
+%%--CABEÇALHO--%%
 
-\resumo
-esse é um resumo.
-\begin{keywords}
-Espaços vetoriais; operadores lineares; teorema espectral, integrais sobre superfícies.
-\end{keywords}
+ \begin{center}
+ 
+ \Large UNIVERSIDADE FEDERAL DE SERGIPE
+PRÓ-REITORIA DE PÓS-GRADUAÇÃO E PESQUISA
+COORDENAÇÃO DE PESQUISA
+\vspace{10mm} 
 
-% Sumário
-\tableofcontents
+\normalsize PROGRAMA DE INICIAÇÃO CIENTÍFICA VOLUNTÁRIA – PICVOL
 
-% Parte Textual
-\mainmatter
+\vspace{20mm}
 
-\chapter{Introdução}
+\textbf{\Large CONTROLE ÓPTIMO EM TERAPIAS DE CÂNCER}
 
-As pesquisas em Matemática nas \'{u}ltimas d\'{e}cadas t\^{e}m vivido um enorme desenvolvimento devido a sua extensa aplicação nas v\'{a}rias \'{a}reas da ci\^{e}ncia. Destacamos na matem\'{a}tica as Equações Diferenciais Parciais (EDP) por sua grande influência em modelos que surgem da física e da biologia, a exemplo das Equações de Reação e Difusão, dos Sistemas de Leis de Conservação, da Hidrodinâmica, da formação de tecidos e padrões dentro de organismos vivos e crescimento de tumores. Uma outra classe importante de EDPs surge de problemas em geometria diferencial, com grande destaque para o problema de Yamabe.
+\vspace{20mm}
+ {\normalsize Área do conhecimento: Matemática\\
+Subárea do conhecimento: Equações Diferenciais Parciais\\
+Especialidade do conhecimento: Oncologia Matemática\\}
+\vspace{20mm}
 
-Neste projeto, pretendemos estudar o operador de Laplace - Beltrami sobre uma variedade conexa compacta sem bordo, que é um dos temas daquilo que podemos chamar de "Análise Geométrica", em sua versão mais básica. Para desenvolver o estudo sobre o tema precisamos de muitas ferramentas básicas da matemática, como os cursos de cálculo da graduação e outros pré-requisitos necessários ao estudo.
+{\normalsize Relatório Final\\
+Período da bolsa: de 08/2017 a 08/2018}
+\vspace{10mm}
 
-A motivação para a escolha deste tema, que visa o aprofundamento de conhecimento e a possibilidae de elaboração de algo novo, deve-se ao fato de apenas os conhecimentos adquiridos nos cursos da grade curricular da graduação, não tornar o aluno capaz de entrar em contato, de modo natural, com conceitos um pouco mais sofisticados do ponto de vista matemático, inerentes às áreas teóricas e aplicadas.
+ {\large Este projeto é desenvolvido de forma voluntária}
+\vspace{10mm}
 
-Pretendemos estudar e assim elaborar um texto sobre o tema com uma abordagem matemática simples e que sirva de referência aos alunos que pretendam estudar o assunto.
+\large{PICVOL}
 
+
+ \end{center}
+
+ 
+\newpage
+
+ 
+ \begin{flushleft}
+ 
+\tableofcontents 
+
+
+\end{flushleft}
+\newpage
+
+\section{ Introdução}
+
+Câncer é o conjunto de mais de 100 doenças, cujo ponto em comum é o crescimento desordenado de células que invadem tecidos e órgãos.\
+
+Nos últimos anos o número de casos tem aumentado e segundo estimativas da Organização Mundial de Saúde o número de novos casos só irão aumentar nos próximos 20 anos. Tornando o câncer a principal causa de morte, superando as doenças cardiovasculares e cerebrovasculares. \
+
+Um dos métodos utilizados para combater o câncer é a radioterapia. Consiste em aplicar feixes de radiações ionizantes, com o objetivo de, através de uma alteração no DNA, impedir a divisão das  tumorais.\
+
+Com o intuito de estudar a dinâmica do crescimento de tumores, junto com o tratamento de radioterapia, fomos introduzidos a temas como o Cálculo Variacional e a Teoria de Controle. Além da introdução de conteúdos novos, foi possível ver na prática, aplicações de conteúdos apresentados em disciplinas da graduação, como o Cálculo e Álgebra Linear. Aumentando assim a compreensão e o interesse por essas disciplinas.\
+
+Continua...
+
+\newpage
+
+\section{Objetivos}
+O objetivo do projeto foi introduzir o tema da dinâmica do crescimento de tumores para que fosse possível para o aluno entender as publicações atuais, na área. Para que seja possível dar os primeiros passos na pesquisa em direção a publicações próprias.
+
+\newpage
+
+\section{Metodologia}
+
+A pesquisa é classificada, tanto do ponto de vista dos procedimentos metodológicos, quanto da natureza, como uma pesquisa bibliográfica, uma vez que os estudos foram feitos a partir de materiais já publicados. Periodicamente, houve encontros entre orientando e orientador para discussão e exposição do conteúdo estudado. Ao final, para colocar em prática os conteúdos apresentados, foi proposta a implementação de código computacional para reproduzir as simulações obtidas em um dos trabalhos, usados como fonte de estudo.
+\cite{Burns2014}
+\newpage
+
+\section{Resultados e discussões }
+\section{Conclusões}
+\section{Perspectivas}
+
+\newpage
+
+\section{Referências bibliográficas}
+\bibliography{pibic-2018.bib}
+	
+\newpage
+
+\section{Outras atividades}
+Além dos encontros em sala para apresentação do conteúdo introdutório ao assunto,
+participei, como atividade complementar, do 27º Encontro de Iniciação Científica da UFS.
+Minicurso sobre GERENCIAMENTO DE REFERÊNCIAS BIBLIOGRÁFICAS PARA
+TRABALHOS DE PESQUISA E ARTIGOS CIENTÍFICOS. No dia 21/11/2017. E do II SSMAC 2018 (Série de Seminários de Matemática Aplicada e Computacional). Palestra sobre UM MODELO PARA CONSTRUIR FOTOGRAFIAS PANORÂMICAS. Dia 20/04/2018.\
 
 \end{document}
