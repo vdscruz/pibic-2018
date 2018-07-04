@@ -101,6 +101,254 @@ Introduzir o tema da dinâmica do crescimento de tumores para que fosse possíve
 
 \newpage
 
+\section{Revisão da Literatura}
+
+Faremos aqui um breve relato do que foi estudado durante a iniciação científica, sendo que os temas, devido a sua complexidade, foram expostos pelo orientador e  co-orientador, cabendo ao orientando aplicá-los na segunda fase no contexto de otimização de terapias de câncer. Nossas principais referências foram os livros (Colocar referencias).
+Começamos sendo apresentados a alguns problemas clássicos, para motivar o estudo do cálculo de variações, como por exemplo o problema da braquistócrona.
+
+\begin{itemize}
+\item O problema da braquistócrona
+\end{itemize}
+
+O problema da braquistócrona, proposto por Johann Bernnoulli em 1696, consiste em encontrar uma curva que uma partícula deve descrever ao se deslocar de um ponto A até um ponto B situados em um mesmo plano vertical, no menor tempo possível, apenas sob a ação da gravidade. Neste caso o ponto A é suposto estar acima do ponto B, mas não na mesma vertical. Se A e B estiverem na mesma vertical, a solução é uma reta.
+
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[scale=1.2]{imgs/braquistocrona.png}
+
+  \end{figure}
+
+Figura 4.1 - Esquema do Problema da Braquistócrona no Plano.
+
+Por questões de conveniência o eixo y está orientado no sentido oposto, dessa forma temos uma gravidade orientada no sentido positivo. Desenvolvendo os cálculos, vimos que a solução para esse problema é uma curva y=y(x) que minimiza o funcional abaixo
+
+\begin{center}
+(equacao)
+\end{center}
+
+onde g é a aceleração da gravidade e y(a) = y_a  o gráfico desta solução foi chamado de braquistócrona e é uma cicloide invertida.
+
+\begin{itemize}
+\item O Funcional
+\end{itemize}
+
+Em cada um dos problemas usados como motivação, sempre recaímos num funcional da forma
+
+\begin{center}
+(equacao)
+\end{center}
+
+sujeito a condições de fronteira y(a) = y_a, y(b) = y_b.
+O propósito então é sempre maximizar ou minimizar o funcional cujo domínio é um espaço de funções, por exemplo, C^1[a,b] espaço das funções y:[a,b] → R continuas cuja primeira derivada é também contínua. Nesse espaço trabalhamos com dois tipos de normas:
+
+\begin{itemize}
+\item Norma Fraca
+\end{itemize}
+
+\begin{center}
+(equacao)
+\end{center}
+
+\begin{itemize}
+\item Norma Forte
+\end{itemize}
+
+\begin{center}
+(equacao)
+\end{center}
+
+Partimos do princípio que o funcional possui um extremo y(chapeu)(x) e buscamos condições necessárias que ele deve satisfazer. Para isso tomamos uma pequena perturbação 
+y(x)= y ̂(x)+ εη(x) de y ̂(x), onde η(a)= η(b)=0 e ε>0, de forma que 
+
+\begin{center}
+(equacao)
+\end{center}
+
+Definimos a primeira e segunda variações por
+
+\begin{center}
+equacao
+equacao
+\end{center}
+
+TEOREMA: Uma condição necessária para o funcional ter um mínimo local (ou máximo) em y ̂(x) é que a primeira variação de J(y(∙)) seja nula, insto é σJ=0, para toda variação η(x).
+
+Usando integração por partes, reescrevemos σJ=0 na forma
+
+\begin{center}
+(equacao)
+\end{center}
+
+e como esta equação é válida para todo η(x)∈ C^1 [a,b] tal que η(a)= η(b)=0 o Lema de Du Bois - Reymond nos diz que 
+
+\begin{center}
+equacao
+\end{center}
+
+esta é a equação de Euler - Lagrange, ela nos diz que se y ̂(x) ∈ C^2 [a,b] e é um extremo local de J(y(∙)), então y ̂(x) deve satisfazer (3). Dessa forma, pelo uso das equações de Euler - Lagrange (3), encontramos que a curva que minimiza o funcional no problema da braquistócrona é a cicloide
+
+\begin{center}
+equacao
+\end{center}
+
+Em seguida trabalhamos com funcionais que dependem de múltiplas funções, ou seja,
+
+\begin{center}
+equacao
+\end{center}
+
+satisfazendo as condições de fronteira y_i (a) = y_ia, y_i (b) = y_ib, para i=1,…,n. Neste momento assumimos que as variáveis são independentes e a não existência de restrições. Agindo da mesma forma que anteriormente, buscamos condições necessárias que uma solução y ̂(x)=(y ̂_1,…(,y) ̂_n (x)) minimizadora deve satisfazer. Para isso, novamente, tomamos uma perturbação y(x)= y ̂(x)+ εη(x), onde η(x)=(η_i (x))   e  η_i (a)=η_i (b)  = 0,
+para i =1,…,n. Mais uma vez considerando a variação J(y ̂  + εη) - J(y ̂) como uma função de ε e usando expansão de Taylor e Du Bois - Raymond, obtemos um sistema de equações de Euler - Lagrange
+
+\begin{center}
+equacao
+\end{center}
+
+Para o caso particular, onde a variável independente x não aparece explicitamente no Lagrangeano f( y_1,…,y_n,〖y'〗_1,…,〖y'〗_n), o sistema (4) assume a forma
+
+\begin{center}
+equacao
+\end{center}
+
+Os resultados obtidos são aplicados na mecânica - Lagrangeana, com o problema do pêndulo esférico. Nesse problema a variável independente x denota o tempo t e escrevemos y(t)=q(t)=(q_1 (t),…,q_n (t)), chamadas de coordenadas generalizadas. Tomamos o Lagrangeano como sendo
+
+\begin{center}
+equacao
+\end{center}
+
+onde K é a energia cinética e U é a energia potencial e assumimos o princípio de Hamilton que nos diz que o movimento do sistema mecânico de q(t_a )= q_a   a  q(t_b )= q_b é tal que a primeira variação da integral S(q)= ∫_(t_a)^(t_b)▒〖f(t,q,q ̇ )  dt〗 é zero.
+
+
+\begin{itemize}
+\item O Problema do pêndulo
+\end{itemize}
+
+No problema do pêndulo, esboçado abaixo, temos uma massa m no extremo de uma corda sem peso de comprimento l. Assim, o movimento da massa está restrito à esfera de raio l. Sendo θ o ângulo da corda com o eixo vertical e φ o ângulo da projeção dessa corda com o eixo x.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[scale=1.2]{imgs/pendulo.PNG}
+
+  \end{figure}
+  
+\begin{center}
+  Figura 4.2 - Esquema do Problema do pêndulo no Espaço.
+  \end{center}  
+  
+Do modelo acima retiramos as seguintes expressões para as energias potencial e cinética, respectivamente,
+
+\begin{center}
+equacoes
+\end{center}
+  
+Logo, o lagrangeano será
+
+\begin{center}
+equacoes
+\end{center}
+
+Desde que f não dependa explicitamente de t, através da expressão (5) obtemos que
+
+\begin{center}
+equacoes
+\end{center}
+
+onde E é a energia total do sistema. Logo a função q(t)=(θ(t),φ(t)) que minimiza o potencial para o movimento, deve satisfazer esta equação.
+
+Continuando com o estudo, relacionamos o Lagrangeano ao Hamiltoniano, buscando reescrever o sistema das n equações (4) como um sistema de 2n equações diferenciais de primeira ordem.
+Seja F: R→ R^3 uma função que para cada tempo t associa uma força F(t)=(〖 f〗_1 (t),〖 f〗_2 (t),〖 f〗_3 (t)) num espaço de configurações q(t)=(〖 q〗_1 (t),〖 q〗_2 (t),〖 q〗_3 (t)). Da Segunda Lei de Newton F(t)=mq ̈(t)=  d/dt(mq ̇(t)), considerando F(t) um campo conservativo, temos que
+
+\begin{center}
+equacoes
+\end{center}
+
+onde P(t) = U(t,q(t)) é a energia potencial. Fazendo K(t)= 1/2 m‖q ̇(t)‖^2 a energia cinética, segue que a energia total é dada por H(t)=P(t)+K(t).
+Vimos anteriormente que 
+
+\begin{center}
+equacoes
+\end{center}
+
+Além disso, o Princípio da Menor Ação de Hamilton nos diz que se q ̂(t) é um mínimo do funcional J(q(t))= ∫_(t_0)^t▒〖f(s,q(s),q ̇(s)) ds〗, então 
+
+\begin{center}
+equacoes
+\end{center}
+
+Assim, 
+\begin{center}
+equacoes
+\end{center}
+
+onde p(t) = mq(t) é o momento. Note que para cada j = 1,2,3,p_j=  ∂f/(∂q ̇_j ). A expressão (9) é chamada de transformada de Legendre. Podemos, portanto, reescrever (8) na forma
+
+\begin{center}
+equacoes
+\end{center}
+
+e através de (9), obtemos o sistema Hamiltoniano com 2n equações de Primeira Ordem
+
+\begin{center}
+equacoes
+\end{center}
+
+
+A etapa seguinte consistiu em estudar extremos do funcional J(y(∙)) com restrições. Foram trabalhados três tipos de restrições: Isoperimétricas, Holonômicas e Não - Holonômicas. A primeira na forma de condições integrais
+
+\begin{center}
+equacoes
+\end{center}
+
+como no problema da rainha Dido; e as outras duas diferenciando-se conforme envolva as derivadas y' ou não: 
+
+\begin{center}
+equacoes
+\end{center}
+
+Exemplificamos apenas os dois primeiros tipos.
+
+Para manipular essas restrições usamos multiplicadores de Lagrange. Por exemplo, no caso isoperimétrico, considerando uma perturbação do tipo y(x)=y(x)+ ε_1 η_1 (x)+ ε_2 η_2 (x), com η_1 (a)=η_2 (a)  = 0 e η_1 (b)=η_2 (b)  = 0 , concluímos que primeiro devemos encontrar extremos para o funcional ∫_a^b▒〖[f(x,y,y') - λg(x,y,y')]  dx〗, para λ constante, na forma y=y(x,λ,c_1,c_2), onde c_1  e  c_2 são constantes a serem determinadas através das condições de fronteira. Na sequência, usamos a segunda variação (2) para retirar condições sobre um extremo do funcional J(y) sujeito às condições de fronteira y(a) =〖 y〗_a  e y(b) = y_b. Desde que δJ=0, segue da expansão ΔJ= δJ+1/2 δ^2 J+O(ε^3) que para ε suficientemente pequeno a variação total é dominada por δ^2 J. Assim para que o funcional tenha um mínimo local em y ̂(x) ∈ C^1 [a,b], é necessário que δ^2 J ≥0, para todo η(x) ∈ C^1 [a,b] que se anula em a e b.
+
+\begin{itemsize}
+\item Condição de Legendre
+\end{itemize}
+
+Buscando uma condição sobre variações fortes, estudamos a condição de Legendre que afirma que uma condição necessária para o funcional J(y) ter um mínimo local em y ̂(x) é que 
+
+\begin{center}
+equacoes
+\end{center}
+
+Encerramos o estudo de Cálculo variacional investigando condições para um extremo local forte y ̂ do funcional J(y). Nesse caso, podemos considerar y ̂ uma função contínua por partes no intervalo [a, b]. Supondo a existência de um ponto de canto c ∈[a,b], tomamos duas perturbações η_(1 e ) η_(2 ) agindo sobre as duas porções de y ̂ (antes e depois de c):
+
+\begin{center}
+equacoes
+\end{center}
+
+Dessa forma, o funcional J é escrito como uma soma de dois funcionais, onde cada uma das funções de y ̂ deve ser um extremo do funcional correspondente J_i. Considerando a primeira variação δJ_1=0 e δJ_2=0, obtemos a condição de Weierstrass-Erdmann que nos diz que se y ̂ é um extremo forte de J(y(∙)) então  ∂f/(∂y') e y'∂f/(∂y')-f devem ser contínuos em cada lado do canto c.
+
+Para um determinado Lagrangeano f(x,y,z), a função excesso de Weierstrass é definida por 
+
+\begin{center}
+equacoes
+\end{center}
+
+que pode ser pensada como a primeira aproximação de Taylor para f(x,y,w) em torno de z. Assim, de modo equivalente obtemos que se y ̂ é um mínimo forte de J, então E(x,y ̂(x),y ̂^' (x),w)≥0,   para todo w∈ R e todo x∈[a,b] que não são cantos.
+
+Da transformada de Legendre, H(x,y,z,p)=pz-f(x,y,z) e da equação (10), encontramos que 
+
+\begin{center}
+equacoes
+\end{center}
+
+de modo que, se y ̂ é um mínimo forte local para J, então y ̂ maximiza o Hamiltoniano H(x,y,w,p), para todo x∈[a,b]. Este é o princípio do máximo de Weierstrass.
+
+
+
+
+\newpage
+
 \section{Metodologia}
 
 A pesquisa é classificada, tanto do ponto de vista dos procedimentos metodológicos, quanto da natureza, como uma pesquisa bibliográfica, uma vez que os estudos foram feitos a partir de materiais já publicados. Periodicamente, houve encontros entre orientando e orientador para discussão e exposição do conteúdo estudado. Ao final, para colocar em prática os conteúdos apresentados, foi proposta a implementação de código computacional para reproduzir as simulações obtidas em um dos trabalhos, usados como fonte de estudo.
