@@ -280,7 +280,7 @@ $ f(t, q(t), \dot{q}(t)) = \dfrac{1}{2} m||\dot{q}||^2 -U(t, q(t)) $ (7)
 Além disso, o Princípio da Menor Ação de Hamilton nos diz que se $\hat{q}(t)$ é um mínimo do funcional $J(q(t))= \int_{t_0}^t f(s,q(s),\hat{\dot{q}}(s)) \; \mathrm{d}s$, então 
 
 \begin{center}
-$ \dfrac{\partial f}{\partial q_i}(t, \hat{q}(t), \hat{\dot{q}}(t)) - \dfrac{d}{dt} \dfrac{\partial f}{\partial q_i}(t, \hat{q}(t), \hat{\dot{q}}(t)) = 0$ , para $i = 1,2,3$.
+$ \dfrac{\partial f}{\partial q_i}(t, \hat{q}(t), \hat{\dot{q}}(t)) - \dfrac{d}{dt} \dfrac{\partial f}{\partial q_i}(t, \hat{q}(t), \hat{\dot{q}}(t)) = 0$ , para $i = 1,2,3$ (8).
 \end{center}
 
 Assim, 
@@ -358,7 +358,35 @@ $E(x,y,z,w)=H(x,y,z,p)-H(x,y,w,p)$,
 
 de modo que, se $\hat{y}$ é um mínimo forte local para J, então $\hat{y}$ maximiza o Hamiltoniano H(x,y,w,p), para todo $x \in [a,b]$. Este é o princípio do máximo de Weierstrass.
 
+\begin{itemize}
+\item Controle Ótimo Linear Feedback
+\end{itemize}
 
+Em seguida foi introduzido o Regulador Linear Quadrático. Dado Um sistema descrito por um conjunto de equações diferenciais lineares e um custo descrito por uma função quadrática, o Regulador LQ provê a solução do problema Linear Quadrático.
+Seja $\dot{x} = f(x,u) = A(t)x + B(t)u$, sendo $x(t_0) = x_0$, com $x \in \mathbb{R}^n, u \in \mathbb{R}^m$  e o conjunto alvo sendo $S= \lbrace t_1\rbrace \times \mathbb{R}$ (Horizonte Finito) o funcional a ser minimizado é
+
+\begin{center}
+$ J(u) = \int_{t_0}^{t_1} (x^tQ(t)x + u^tR(t)u) \; dt + x^t(t_1)Mx(t_1) $
+\end{center} 
+
+Segundo a transformada de legendre, podemos escrever a Hamiltoniana  da seguinte forma
+
+\begin{center}
+
+$H(x,u) = -p_0L(x,u) + \langle p, f(x,u) \rangle$, $p_o = 1$ \\
+$H(x,u) = -x^tQ(t)x - u^tR(t)u + \langle p, A(t)x + B(t)u \rangle$\\
+$H(x,u) = -x^tQ(t)x - u^tR(t)u + \langle p, A(t)x \rangle + \langle p, B(t)u \rangle$\\\
+
+$ \dfrac{\partial H}{\partial u} = 0 $\\
+$ B^tp - 2R(t)u^* = 0 $\\
+$u^* = \dfrac{1}{2}R^{-1}B^tp(t)$\\
+\end{center}
+
+onde $u^*$ ... e $p(t)$ é a solução da equação de Riccati 
+
+\begin{center}
+$ \dot{p}(t) = -p(t)A(t) - A^t(t)p(t) - Q(t) + p(t)B(t)R^{-1}(t)B^t(t)p(t)$
+\end{center}
 \newpage
 
 \section{Metodologia}
