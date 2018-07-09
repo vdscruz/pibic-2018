@@ -118,7 +118,7 @@ O problema da braquistócrona, proposto por Johann Bernnoulli em 1696, consiste 
 
   \end{figure}
 
-Figura 4.1 - Esquema do Problema da Braquistócrona no Plano.
+Figura 3.1 - Esquema do Problema da Braquistócrona no Plano.
 
 \end{center}
 
@@ -239,7 +239,7 @@ No problema do pêndulo, esboçado abaixo, temos uma massa m no extremo de uma c
   \end{figure}
   
 \begin{center}
-  Figura 4.2 - Esquema do Problema do pêndulo no Espaço.
+  Figura 3.2 - Esquema do Problema do pêndulo no Espaço.
   \end{center}  
   
 Do modelo acima retiramos as seguintes expressões para as energias potencial e cinética, respectivamente,
@@ -391,8 +391,212 @@ $ \dot{p}(t) = -p(t)A(t) - A^t(t)p(t) - Q(t) + p(t)B(t)R^{-1}(t)B^t(t)p(t)$
 
 \section{Metodologia}
 
-A pesquisa é classificada, tanto do ponto de vista dos procedimentos metodológicos, quanto da natureza, como uma pesquisa bibliográfica, uma vez que os estudos foram feitos a partir de materiais já publicados. Periodicamente, houve encontros entre orientando e orientador para discussão e exposição do conteúdo estudado. Ao final, para colocar em prática os conteúdos apresentados, foi proposta a implementação de código computacional para reproduzir as simulações obtidas em um dos trabalhos, usados como fonte de estudo.
-\cite{Burns2014}
+A pesquisa é classificada, tanto do ponto de vista dos procedimentos metodológicos, quanto da natureza, como uma pesquisa bibliográfica, uma vez que os estudos foram feitos a partir de materiais já publicados. Periodicamente, houve encontros entre orientando e orientador para discussão e exposição do conteúdo estudado. Ao final, para colocar em prática os conteúdos apresentados, foi proposto o estudo de uma dissertação (referencia) para aplicar o conteúdo ao modelo apresentado no trabalho.
+Dado o modelo,
+\begin{center}
+$$
+\left \{
+\begin{array}{rl}
+\dot N = & r_2 N (1-b_2N)-c_4 TN \\
+\dot T = & r_1 T (1-b_1T)-c_2 IT - c_3 TN \\
+\dot I = & s+\dfrac{\rho I T}{\chi + T} - c_1 I T - d_1 I
+\end{array}
+\right .
+$$ (1)
+\end{center}
+
+onde N, T e I são variaveis que dizem respeito a quantidade de celulas normais, tumorais e imunologicas respectivamente. No modelo as celulas normais e tumorais seguem uma lei de crescimento logistico, que pode ser identificada pelos termos $r_2 N (1-b_2N)$ para as celulas normais e $r_1 T (1-b_1T)$ para as celulas tumorais, onde $r_i$ e $b_i$ representam a taxa de crescimento e a capacidade de sobrevivência respectivamente e $i=1$ identifica paramentros associados ao tumor e $i=2$ parametros associados à celulas sadias. Já sobre a interação entre as células do sistema podemos dizer que as celulas normais e tumorais competem por recursos e as celulas tumorais e imunologicas competem de forma presa - predador onde $c_4 TN$ representa o impacto da interaçao de celulas normais e tumorais para as celulas normais, assim como $c_3 TN$ representa o impacto da interaçao de celulas normais e tumorais para celulas tumorais, de maneira analoga  $c_2 IT$ e $c_1 I T$ representam o impacto da interaçao das celulas imunologicas e tumorais para ambas as celulas. Já o termo $dfrac{\rho I T}{\chi + T}$ representa o estimulo que a presença do tumor gera na resposta imune, sendo que $x$ e $\rho$ são constantes positivas. $s$ representa a fonte de celulas imunes e $d_1$ a taxa de morte da celula imune.
+
+\begin{itemize}
+\item Dinamica do sistema
+\end{itemize}
+
+Após analise dos termos do modelo, foi feita a analise dos pontos de equilibrio. Fazendo $\dot N = 0$, $\dot T = 0$ e $\dot T = 0$ foram obtidos 
+\begin{center}
+$N = \dfrac{1}{b_2} - \dfrac{c_4 T}{r_3 b_2}$ (2)\\
+$T = \dfrac{r_1 - c_2 I - c_3 N}{r_1 b_1}$ (3) \\
+$I = \dfrac{s(\chi + T)}{(\chi + T)(c_1 + d_1) + \rho T}$ (4)\\
+\end{center}
+
+Para o modelo (1) são 3 os pontos de equilíbrio\\
+
+\begin{enumerate}
+\item Paciente livre de tumor $(T = 0) - (\dfrac{1}{b_2}, 0, \dfrac{s}{d_1})$
+\item Paciente morto $N = 0$
+	\begin{enumerate}
+		\item $T = 0 - (0,0, \dfrac{s}{d_1})$
+		\item $T \neq 0 - (0, T, f(T))$ (5) onde $f(T) = \dfrac{s(\chi + T)}{(\chi + T)(c_1 + d_1) + \rho T}$
+	\end{enumerate}
+\item Coexistência $(N(T), T, f(T))$
+\end{enumerate}
+
+\begin{itemize}
+\item Analise de estabilidade dos pontos de equilíbrio
+\end{itemize}
+
+Assim, como na dissertação usada como guia, em nosso estudo, só foi analisado o primeiro caso, onde o sistema fica livre do tumor. Escrevendo o sistema na forma linearizada temos
+
+\begin{center}
+$ \dot X = JX(T)$ onde J é a matriz jacobiana dada por\\
+$$
+J=
+\left[ 
+\begin{array}{ccc}
+\dfrac{\partial N}{\partial N} & \dfrac{\partial N}{\partial T} & \dfrac{\partial N}{\partial I} \\ \\
+\dfrac{\partial T}{\partial N} & \dfrac{\partial T}{\partial T} & \dfrac{\partial T}{\partial I} \\ \\
+\dfrac{\partial I}{\partial N} & \dfrac{\partial I}{\partial T} & \dfrac{\partial I}{\partial I} 
+\end{array}  
+\right]
+$$
+\end{center}
+
+Escrevendo a equação (5) em torno do ponto $(\dfrac{1}{b_2}, 0, \dfrac{s}{d_1})$ temos o seguinte sistema
+
+$$
+\left[ 
+\begin{array}{c}
+\dot{N} \\ \\
+\dot{T} \\ \\
+\dot{I}
+\end{array}  
+\right]
+=
+\left[ 
+\begin{array}{ccc}
+-r_2 & -\dfrac{c_4}{b_2} & 0 \\ \\
+0 & r_1 - \dfrac{c_2 s}{d_1} - \dfrac{c_3}{b_2} & 0 \\ \\
+0 & \dfrac{\rho s}{d_1 \chi} - \dfrac{c_1 s}{d_1} & -d_1 
+\end{array}  
+\right]
+\left[ 
+\begin{array}{c}
+\dot{N} \\ \\
+\dot{T} \\ \\
+\dot{I}
+\end{array}  
+\right]
+$$
+
+encontramos os auto valores $\lambda_1 = -r_2$, $\lambda_2 = r_1 - \dfrac{c_2 s}{d_1} - \dfrac{c_3}{b_2}$ e $\lambda_3 = -d_1$, sabendo que como critério de estabilidade todos os autos valores devem ser negativos, ficamos com a condição de que $r_1 < \dfrac{c_2 s}{d_1} + \dfrac{c_3}{b_2}$.
+
+\begin{itemize}
+\item Simulação após analise de ponto de equilíbrio
+\end{itemize}
+
+Usando parametros apresentados no trabalho base, que simulam o cancer de mana, foram feitas simulaçoes usando a linguagem de programaçao Python para implementar o metódo numerico de Runge Kutta de Ordem 4. Aqui foi feita uma avaliaçao do desenvolvimento das celulas com o decorrer do tempo e também uma avaliaçao a cerca da convergência do sistema para os pontos criticos com um grafico que relaciona celulas normais, tumorais e imunes:
+
+\newpage
+
+\begin{center}
+\begin{figure}[!h]
+	\centering
+    \includegraphics[scale=0.4]{imgs/plot_1.png}
+
+  \end{figure}
+
+Figura 4.1 - À esquerda, gráfico do crescimento das celulas com o decorrer do tempo. À direita grafico de convergencia onde o ponto vermelho é um ponto critico associado a morte do individuo e o ponto verde um ponto critico associado a eliminaçao do tumor.
+\end{center}
+
+
+\begin{itemize}
+\item Modelagem matemática do tratamento do câncer com radioterapia 
+\end{itemize}
+
+Nessa etapa fomos apresentados a um modelo para a resposta celular a radiação, o Modelo Linear Quadratico. Baseado em resultados experimentais, concluiu-se que o efeito da radiação apresenta um decaimento exponencial, de forma que a fracao de sobrevida celular S pode ser expresso como
+\begin{center}
+$S = \exp^{-\alpha D - \beta D^2}$
+\end{center}
+
+onde $\alpha$ é o numero de células mortas por $Gy$ e  $\beta$ o numero de celulas mortas por $(Gy)^2$ ambos em escala logaritimica
+
+\begin{itemize}
+\item Simulações de Tratamento 
+\end{itemize}
+
+Para simular o tratamento radioterapico, foram usados os protocolos mostrados no trabalho base
+
+
+\begin{center}
+\begin{tabular}{l | c | c | c | c}
+\hline
+Tipo de Tratamento & BDE (Gy) & Dose Por fraçao (Gy) & FN & FT \\ \hline
+I - Concencional & 60 & 2 & 0,2320 & 0,4082 \\ \hline
+II - Hipofracionamento & 53,61 & 2,65 & 0,3084 & 0,5207 \\ \hline
+III - Hipofracionamento &  49,98 & 2,5 & 0,2909 & 0,4961 \\ \hline
+IV - Hipofracionamento & 51,85 & 3 & 0,329 & 0,549 \\ \hline
+V - Concencional & 21,98 & 1 & 0,1140 & 0,2131 \\ 
+\hline
+\end{tabular}
+\end{center}
+
+
+BDE é a dose total biologicamente efetiva, FN é a fraçao de morte para celulas normais e FT é a fraçao de morte para celulas tumorais. A fração de morte celular é a fraçao de celulas mortas a cada dose aplicada no local do tumor, dado por
+
+\begin{center}
+$ F_i = \delta a_i (1 - S)$
+\end{center}
+
+onde $\delta$ é o tempo de exposiçao, $a_i$ são parametros relacionados a cada tipo de célula e $i$ vale 1 para celulas normais, 2 para celulas tumorais e 3 para celulas imunologicas. Novamente utilizando a linguagem de programaçao Python para implementaçao, obtivemos os graficos a seguir. Sempre, à esquerda, gráfico do crescimento das celulas com o decorrer do tempo. E à direita, grafico de convergencia, onde o ponto vermelho é um ponto critico associado a morte do individuo e o ponto verde um ponto critico associado a eliminaçao do tumor:
+
+\newpage
+
+\begin{center}
+\begin{figure}[!h]
+	\centering
+    \includegraphics[scale=0.4]{imgs/plot_trat_1.png}
+
+  \end{figure}
+
+
+Figura 4.2 - Protocolo I.
+\end{center}
+
+\begin{center}
+\begin{figure}[!h]
+	\centering
+    \includegraphics[scale=0.4]{imgs/plot_trat_2.png}
+
+  \end{figure}
+
+
+Figura 4.3 - Protocolo II.
+\end{center}
+
+\begin{center}
+\begin{figure}[!h]
+	\centering
+    \includegraphics[scale=0.4]{imgs/plot_trat_3.png}
+
+  \end{figure}
+
+
+Figura 4.4 - Protocolo III.
+\end{center}
+
+\newpage
+
+\begin{center}
+\begin{figure}[!h]
+	\centering
+    \includegraphics[scale=0.4]{imgs/plot_trat_4.png}
+
+  \end{figure}
+
+
+Figura 4.5 - Protocolo IV.
+\end{center}
+
+\begin{center}
+\begin{figure}[!h]
+	\centering
+    \includegraphics[scale=0.4]{imgs/plot_trat_5.png}
+
+  \end{figure}
+
+
+Figura 4.6 - Protocolo V.
+\end{center}
+
 \newpage
 
 \section{Resultados e discussões }
