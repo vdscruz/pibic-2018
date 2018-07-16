@@ -24,7 +24,7 @@
 \makeatother
 
 \author{COPES - UFS}
-\title{Modelo_Relatorio_Parcial}
+\title{Modelo Relatório Parcial}
 \date{}
 %\Marginsize marginsize { 1 centímetro } {2 } { 4 em em} { 6 pt } 
 
@@ -48,7 +48,7 @@ COORDENAÇÃO DE PESQUISA
 
 \vspace{20mm}
 
-\textbf{\Large CONTROLE ÓPTIMO EM TERAPIAS DE CÂNCER}
+\textbf{\Large CONTROLE ÓTIMO EM TERAPIAS DE CÂNCER}
 
 \vspace{20mm}
  {\normalsize Área do conhecimento: Matemática\\
@@ -86,22 +86,22 @@ Câncer é o conjunto de mais de 100 doenças, cujo ponto em comum é o crescime
 
 Nos últimos anos o número de casos tem aumentado e segundo estimativas da Organização Mundial de Saúde o número de novos casos só irão aumentar nos próximos 20 anos. Tornando o câncer a principal causa de morte, superando as doenças cardiovasculares e cerebrovasculares. \
 
-Um dos métodos utilizados para combater o câncer é a radioterapia. Consiste em aplicar feixes de radiações ionizantes, com o objetivo de, através de uma alteração no DNA, impedir a divisão das  tumorais.\
+Um dos métodos utilizados para combater o câncer é a radioterapia. Consiste em aplicar feixes de radiações ionizantes, com o objetivo de, através de uma alteração no DNA, impedir a divisão das  células tumorais.\
 
 Com o intuito de estudar a dinâmica do crescimento de tumores, junto com o tratamento de radioterapia, fomos introduzidos a temas como o Cálculo Variacional e a Teoria de Controle. Além da introdução de conteúdos novos, foi possível ver na prática, aplicações de conteúdos apresentados em disciplinas da graduação, como o Cálculo e Álgebra Linear. Aumentando assim a compreensão e o interesse por essas disciplinas.\
 
-Continua...
+O objetivo principal, no presente trabalho, é mostrar que a teoria de controle ótimo pode ser usada juntamente com modelos matemáticos que modelam o crescimento de um tumor. Criando assim várias possibilidades  de abordagens novas ao modelo, como encontrar melhor protocolo de fracionamento ou ainda combinações de tratamentos com o tratamento da radioterapia, porém isso não será feito no presente trabalho.
 
 \newpage
 
 \section{Objetivos}
-Introduzir o tema da dinâmica do crescimento de tumores para que fosse possível para o aluno entender as publicações atuais, na área. Para que seja possível dar os primeiros passos na pesquisa em direção a publicações próprias.
+Introduzir o tema da dinâmica do crescimento de tumores e controle ótimo, afim de promover o entendimento do aluno acerca das publicações atuais na área. Dessa forma, será possível dar os primeiros passos na pesquisa em direção a publicações próprias.
 
 \newpage
 
 \section{Revisão da Literatura}
 
-Faremos aqui um breve relato do que foi estudado durante a iniciação científica, sendo que os temas, devido a sua complexidade, foram expostos pelo orientador e  co-orientador, cabendo ao orientando aplicá-los na segunda fase no contexto de otimização de terapias de câncer. Nossas principais referências foram os livros (Colocar referencias).
+Faremos aqui um breve relato do que foi estudado durante a iniciação científica, sendo que os temas, devido a sua complexidade, foram expostos pelo orientador e  co-orientador, cabendo ao orientando aplicá-los na segunda fase no contexto de otimização de terapias de câncer. Nossas principais referências foram os livros \cite{Burns2014}, \cite{Kot2014}, \cite{Liberzon2012} e \cite{Schaettler2014}.
 Começamos sendo apresentados a alguns problemas clássicos, para motivar o estudo do cálculo de variações, como por exemplo o problema da braquistócrona.
 
 \begin{itemize}
@@ -211,13 +211,13 @@ para $i =1,...,n$. Mais uma vez considerando a variação $J(\hat{y} + \varepsil
 $\dfrac{\partial f}{\partial y_i} - \dfrac{d}{dx}(\dfrac{\partial f}{\partial y_i'}) = 0 $, $ i = 1,...,n$ (4)
 \end{center}
 
-Para o caso particular, onde a variável independente $x$ não aparece explicitamente no Lagrangeano $f(y_1,...,y_n,y'_1,...,y'_n)$, o sistema (4) assume a forma
+Para o caso particular, onde a variável independente $x$ não aparece explicitamente no Lagrangiano $f(y_1,...,y_n,y'_1,...,y'_n)$, o sistema (4) assume a forma
 
 \begin{center}
 $f - \sum_{i=1}^{n} \dfrac{\partial f}{\partial y'_i} y'_i = C$(5)
 \end{center}
 
-Os resultados obtidos são aplicados na mecânica - Lagrangeana, com o problema do pêndulo esférico. Nesse problema a variável independente $x$ denota o tempo $t$ e escrevemos $y(t)=q(t)=(q_1 (t),…,q_n (t))$, chamadas de coordenadas generalizadas. Tomamos o Lagrangeano como sendo
+Os resultados obtidos são aplicados na mecânica - Lagrangiana, com o problema do pêndulo esférico. Nesse problema a variável independente $x$ denota o tempo $t$ e escrevemos $y(t)=q(t)=(q_1 (t),…,q_n (t))$, chamadas de coordenadas generalizadas. Tomamos o Lagrangiano como sendo
 
 \begin{center}
 $ f(t, q, \dot q) = K(t, q, \dot q) - U(t, q) $,
@@ -249,7 +249,7 @@ $U(\theta) = mgl(1-\cos\theta)$ e\\
 $K(\theta, \varphi) = \dfrac{1}{2}ml^2({\dot \theta}^2 + {\dot \varphi}^2 \sin^2 \theta)$
 \end{center}
   
-Logo, o lagrangeano será
+Logo, o lagrangiano será
 
 \begin{center}
 $ f(\theta, \dot \theta, \dot \varphi) =  \dfrac{1}{2}ml^2({\dot \theta}^2 + {\dot \varphi}^2 \sin^2 \theta) - mgl(1-\cos\theta)$
@@ -263,7 +263,7 @@ $\dfrac{1}{2}ml^2({\dot \theta}^2 + {\dot \varphi}^2 \sin^2 \theta) - mgl(1-\cos
 
 onde E é a energia total do sistema. Logo a função $q(t)=(\theta(t),\varphi(t))$ que minimiza o potencial para o movimento, deve satisfazer esta equação.
 
-Continuando com o estudo, relacionamos o Lagrangeano ao Hamiltoniano, buscando reescrever o sistema das n equações (4) como um sistema de 2n equações diferenciais de primeira ordem.
+Continuando com o estudo, relacionamos o Lagrangiano ao Hamiltoniano, buscando reescrever o sistema das n equações (4) como um sistema de 2n equações diferenciais de primeira ordem.
 Seja $F: \mathbb{R} \to \mathbb{R}^3$ uma função que para cada tempo t associa uma força $F(t)=(f_1(t),f_2(t),f_3(t))$ num espaço de configurações $q(t)=(q_1(t),q_2(t),q_3(t))$. Da Segunda Lei de Newton $F(t)=m\ddot q(t)=  \dfrac{d}{dt}(mq(t))$, considerando $F(t)$ um campo conservativo, temos que
 
 \begin{center}
@@ -342,7 +342,7 @@ $y_2(x)=\hat{y}(x)+ \varepsilon \eta_2(x)$, $\eta_2(a)=0$.
 
 Dessa forma, o funcional J é escrito como uma soma de dois funcionais, onde cada uma das funções de $\hat{y}$ deve ser um extremo do funcional correspondente $J_i$. Considerando a primeira variação $\delta J_1=0$ e $\delta J_2=0$, obtemos a condição de Weierstrass-Erdmann que nos diz que se $\hat{y}$ é um extremo forte de $J(y(\cdot))$ então  $\dfrac{\partial f}{\partial y'}$ e $y'\dfrac{\partial f}{\partial y'}-f$ devem ser contínuos em cada lado do canto c.
 
-Para um determinado Lagrangeano f(x,y,z), a função excesso de Weierstrass é definida por 
+Para um determinado Lagrangiano f(x,y,z), a função excesso de Weierstrass é definida por 
 
 \begin{center}
 $E(x,y,z,y) = f(x,y,w) - [f(x,y,z) + (w-z)f_3 (x,y,z)]$ (10),
@@ -376,13 +376,17 @@ Segundo a transformada de legendre, podemos escrever a Hamiltoniana  da seguinte
 $H(x,u) = -p_0L(x,u) + \langle p, f(x,u) \rangle$, $p_o = 1$ \\
 $H(x,u) = -x^tQ(t)x - u^tR(t)u + \langle p, A(t)x + B(t)u \rangle$\\
 $H(x,u) = -x^tQ(t)x - u^tR(t)u + \langle p, A(t)x \rangle + \langle p, B(t)u \rangle$\\\
+\end{center}
 
+e usando o Principio do Máximo temos que
+
+\begin{center}
 $ \dfrac{\partial H}{\partial u} = 0 $\\
 $ B^tp - 2R(t)u^* = 0 $\\
 $u^* = \dfrac{1}{2}R^{-1}B^tp(t)$\\
 \end{center}
 
-onde $u^*$ ... e $p(t)$ é a solução da equação de Riccati 
+onde $p(t)$ é a solução da equação de Riccati 
 
 \begin{center}
 $ \dot{p}(t) = -p(t)A(t) - A^t(t)p(t) - Q(t) + p(t)B(t)R^{-1}(t)B^t(t)p(t)$
@@ -391,9 +395,10 @@ $ \dot{p}(t) = -p(t)A(t) - A^t(t)p(t) - Q(t) + p(t)B(t)R^{-1}(t)B^t(t)p(t)$
 
 \section{Metodologia}
 
-A pesquisa é classificada, tanto do ponto de vista dos procedimentos metodológicos, quanto da natureza, como uma pesquisa bibliográfica, uma vez que os estudos foram feitos a partir de materiais já publicados. Periodicamente, houve encontros entre orientando e orientador para discussão e exposição do conteúdo estudado. Ao final, para colocar em prática os conteúdos apresentados, foi proposto o estudo de uma dissertação (referencia) para aplicar o conteúdo ao modelo apresentado no trabalho.
+A pesquisa é classificada, tanto do ponto de vista dos procedimentos metodológicos, quanto da natureza, como uma pesquisa bibliográfica, uma vez que os estudos foram feitos a partir de materiais já publicados. Periodicamente, houve encontros entre orientando e orientador para discussão e exposição do conteúdo estudado. Ao final, para colocar em prática os conteúdos apresentados, foi proposto o estudo da dissertação \cite{Tanisia2008} para aplicar o conteúdo ao modelo apresentado no trabalho.\
 Dado o modelo,
 \begin{center}
+
 $$
 \left \{
 \begin{array}{rl}
@@ -405,13 +410,13 @@ $$
 $$ (1)
 \end{center}
 
-onde N, T e I são variaveis que dizem respeito a quantidade de celulas normais, tumorais e imunologicas respectivamente. No modelo as celulas normais e tumorais seguem uma lei de crescimento logistico, que pode ser identificada pelos termos $r_2 N (1-b_2N)$ para as celulas normais e $r_1 T (1-b_1T)$ para as celulas tumorais, onde $r_i$ e $b_i$ representam a taxa de crescimento e a capacidade de sobrevivência respectivamente e $i=1$ identifica paramentros associados ao tumor e $i=2$ parametros associados à celulas sadias. Já sobre a interação entre as células do sistema podemos dizer que as celulas normais e tumorais competem por recursos e as celulas tumorais e imunologicas competem de forma presa - predador onde $c_4 TN$ representa o impacto da interaçao de celulas normais e tumorais para as celulas normais, assim como $c_3 TN$ representa o impacto da interaçao de celulas normais e tumorais para celulas tumorais, de maneira analoga  $c_2 IT$ e $c_1 I T$ representam o impacto da interaçao das celulas imunologicas e tumorais para ambas as celulas. Já o termo $dfrac{\rho I T}{\chi + T}$ representa o estimulo que a presença do tumor gera na resposta imune, sendo que $x$ e $\rho$ são constantes positivas. $s$ representa a fonte de celulas imunes e $d_1$ a taxa de morte da celula imune.
+onde N, T e I são variáveis que dizem respeito a quantidade de células normais, tumorais e imunológicas respectivamente. No modelo as células normais e tumorais seguem uma lei de crescimento logístico, que pode ser identificada pelos termos $r_2 N (1-b_2N)$ para as células normais e $r_1 T (1-b_1T)$ para as células tumorais, onde $r_i$ e $b_i$ representam a taxa de crescimento e a capacidade de sobrevivência respectivamente e $i=1$ identifica parâmetros associados ao tumor e $i=2$ parâmetros associados à células sadias. Já sobre a interação entre as células do sistema podemos dizer que as células normais e tumorais competem por recursos e as células tumorais e imunológicas competem de forma presa - predador onde $c_4 TN$ representa o impacto da interação de células normais e tumorais para as células normais, assim como $c_3 TN$ representa o impacto da interação de células normais e tumorais para células tumorais, de maneira análoga  $c_2 IT$ e $c_1 I T$ representam o impacto da interação das células imunológicas e tumorais para ambas as células. Já o termo $\dfrac{\rho I T}{\chi + T}$ representa o estimulo que a presença do tumor gera na resposta imune, sendo que $x$ e $\rho$ são constantes positivas. $s$ representa a fonte de células imunes e $d_1$ a taxa de morte da célula imune.
 
 \begin{itemize}
-\item Dinamica do sistema
+\item Dinâmica do sistema
 \end{itemize}
 
-Após analise dos termos do modelo, foi feita a analise dos pontos de equilibrio. Fazendo $\dot N = 0$, $\dot T = 0$ e $\dot T = 0$ foram obtidos 
+Após analise dos termos do modelo, foi feita a analise dos pontos de equilíbrio. Fazendo $\dot N = 0$, $\dot T = 0$ e $\dot I = 0$ foram obtidos 
 \begin{center}
 $N = \dfrac{1}{b_2} - \dfrac{c_4 T}{r_3 b_2}$ (2)\\
 $T = \dfrac{r_1 - c_2 I - c_3 N}{r_1 b_1}$ (3) \\
@@ -483,7 +488,7 @@ encontramos os auto valores $\lambda_1 = -r_2$, $\lambda_2 = r_1 - \dfrac{c_2 s}
 \item Simulação após analise de ponto de equilíbrio
 \end{itemize}
 
-Usando parametros apresentados no trabalho base, que simulam o cancer de mana, foram feitas simulaçoes usando a linguagem de programaçao Python para implementar o metódo numerico de Runge Kutta de Ordem 4. Aqui foi feita uma avaliaçao do desenvolvimento das celulas com o decorrer do tempo e também uma avaliaçao a cerca da convergência do sistema para os pontos criticos com um grafico que relaciona celulas normais, tumorais e imunes:
+Usando parâmetros apresentados no trabalho base, que simulam o câncer de mana, foram feitas simulações usando a linguagem de programação Python para implementar o método numérico de Runge Kutta de Ordem 4. Aqui foi feita uma avaliação do desenvolvimento das células com o decorrer do tempo e também uma avaliação a cerca da convergência do sistema para os pontos criticos com um gráfico que relaciona células normais, tumorais e imunes:
 
 \newpage
 
@@ -494,7 +499,7 @@ Usando parametros apresentados no trabalho base, que simulam o cancer de mana, f
 
   \end{figure}
 
-Figura 4.1 - À esquerda, gráfico do crescimento das celulas com o decorrer do tempo. À direita grafico de convergencia onde o ponto vermelho é um ponto critico associado a morte do individuo e o ponto verde um ponto critico associado a eliminaçao do tumor.
+Figura 4.1 - À esquerda, gráfico do crescimento das células com o decorrer do tempo. À direita gráfico de convergência onde os pontos vermelhos são pontos criticos associados a morte do individuo e o ponto verde um ponto critico associado a eliminação do tumor.
 \end{center}
 
 
@@ -502,41 +507,41 @@ Figura 4.1 - À esquerda, gráfico do crescimento das celulas com o decorrer do 
 \item Modelagem matemática do tratamento do câncer com radioterapia 
 \end{itemize}
 
-Nessa etapa fomos apresentados a um modelo para a resposta celular a radiação, o Modelo Linear Quadratico. Baseado em resultados experimentais, concluiu-se que o efeito da radiação apresenta um decaimento exponencial, de forma que a fracao de sobrevida celular S pode ser expresso como
+Nessa etapa fomos apresentados a um modelo para a resposta celular a radiação, o Modelo Linear Quadrático. Baseado em resultados experimentais, concluiu-se que o efeito da radiação apresenta um decaimento exponencial, de forma que a fração de sobrevida celular S pode ser expresso como
 \begin{center}
 $S = \exp^{-\alpha D - \beta D^2}$
 \end{center}
 
-onde $\alpha$ é o numero de células mortas por $Gy$ e  $\beta$ o numero de celulas mortas por $(Gy)^2$ ambos em escala logaritimica
+onde $\alpha$ é o numero de células mortas por $Gy$ e  $\beta$ o numero de células mortas por $(Gy)^2$ ambos em escala logarítmica
 
 \begin{itemize}
 \item Simulações de Tratamento 
 \end{itemize}
 
-Para simular o tratamento radioterapico, foram usados os protocolos mostrados no trabalho base
+Para simular o tratamento radioterápico, foram usados os protocolos mostrados no trabalho base
 
 
 \begin{center}
 \begin{tabular}{l | c | c | c | c}
 \hline
-Tipo de Tratamento & BDE (Gy) & Dose Por fraçao (Gy) & FN & FT \\ \hline
-I - Concencional & 60 & 2 & 0,2320 & 0,4082 \\ \hline
+Tipo de Tratamento & BDE (Gy) & Dose Por fração (Gy) & FN & FT \\ \hline
+I - Convencional & 60 & 2 & 0,2320 & 0,4082 \\ \hline
 II - Hipofracionamento & 53,61 & 2,65 & 0,3084 & 0,5207 \\ \hline
 III - Hipofracionamento &  49,98 & 2,5 & 0,2909 & 0,4961 \\ \hline
 IV - Hipofracionamento & 51,85 & 3 & 0,329 & 0,549 \\ \hline
-V - Concencional & 21,98 & 1 & 0,1140 & 0,2131 \\ 
+V - Convencional & 21,98 & 1 & 0,1140 & 0,2131 \\ 
 \hline
 \end{tabular}
 \end{center}
 
 
-BDE é a dose total biologicamente efetiva, FN é a fraçao de morte para celulas normais e FT é a fraçao de morte para celulas tumorais. A fração de morte celular é a fraçao de celulas mortas a cada dose aplicada no local do tumor, dado por
+BDE é a dose total biologicamente efetiva, FN é a fração de morte para células normais e FT é a fração de morte para células tumorais. A fração de morte celular é a fração de células mortas a cada dose aplicada no local do tumor, dado por
 
 \begin{center}
 $ F_i = \delta a_i (1 - S)$
 \end{center}
 
-onde $\delta$ é o tempo de exposiçao, $a_i$ são parametros relacionados a cada tipo de célula e $i$ vale 1 para celulas normais, 2 para celulas tumorais e 3 para celulas imunologicas. Novamente utilizando a linguagem de programaçao Python para implementaçao, obtivemos os graficos a seguir. Sempre, à esquerda, gráfico do crescimento das celulas com o decorrer do tempo. E à direita, grafico de convergencia, onde o ponto vermelho é um ponto critico associado a morte do individuo e o ponto verde um ponto critico associado a eliminaçao do tumor:
+onde $\delta$ é o tempo de exposição, $a_i$ são parâmetros relacionados a cada tipo de célula e $i$ vale 1 para células normais, 2 para células tumorais e 3 para células imunológicas. Novamente utilizando a linguagem de programação Python para implementação, obtivemos os gráficos a seguir. Sempre, à esquerda, gráfico do crescimento das células com o decorrer do tempo. E à direita, gráfico de convergência, onde o ponto vermelho é um ponto critico associado a morte do individuo e o ponto verde um ponto critico associado a eliminação do tumor:
 
 \newpage
 
@@ -597,16 +602,153 @@ Figura 4.5 - Protocolo IV.
 Figura 4.6 - Protocolo V.
 \end{center}
 
+\begin{itemize}
+\item Controle ótimo
+\end{itemize}
+
+Por fim, trabalhamos no controle ótimo linear feedback. Conhecemos a formulação do problema, apresentado no trabalho base e estudamos as condições que garantem a aplicabilidade do método.\
+
+Dado um sistema não linear na seguinte forma:
+
+\begin{center}
+$\dot x = Ax + g(x)$
+\end{center}
+
+onde $x \in \mathbb{R}^n$ é o vetor das variáveis de estado, $A \in \mathbb{R}^{nxm}$ é uma matriz constante, e $g(x)$ é o vetor, cujos elementos são funções continuas. \
+
+Seja $\tilde{x}$ uma função vetorial que caracteriza a trajetória desejada. O sistema controlado é da seguinte forma:
+
+\begin{center}
+$\dot x = Ax + g(x) + U$
+\end{center}
+
+onde $U \in \mathbb{R}^m$ é o vetor de controle que consiste em duas partes
+
+\begin{center}
+$U = \tilde{u} + u_t$
+\end{center}
+
+Sendo que 
+
+\begin{center}
+$\tilde{u} = \dot{\tilde{x}} -A\tilde{x} + g(\tilde{x})$
+\end{center}
+
+é a parte do vetor de controle que mantém o sistema controlado na trajetória desejada e
+
+\begin{center}
+$u_t = Bu$
+\end{center}
+
+é a parte do vetor de controle que estabiliza o sistema em torno da trajetória, $B \in \mathbb{R}^{nxm}$.\
+
+Definindo $y = x - \tilde{x}$ temos que
+
+\begin{center}
+$\dot y = Ay + G(x,\tilde{x})y + Bu$
+\end{center}
+
+onde $G(x,\tilde{x})y = g(x) - g(\tilde{x})$
+
+\begin{itemize}
+\item Simulação controle ótimo feedback para sistemas lineares.
+\end{itemize}
+
+Nossa problema é determinado por encontrar o controle ótimo $u$ que transfere o sistema de qualquer estado inicial ao estado final $y(\infty) = 0$ minimizando o funcional $\tilde{J} = \int^{\infty}_{0} (y^T\tilde{Q}y + u^TRu)$.\
+
+Para sistemas lineares a função $G(x, \tilde{x}) = 0$ e o controle ótimo é encontrado na seguinte forma
+
+\begin{center}
+$ u = -R^{-1}B^TPy$
+\end{center}
+
+Novamente, para as simulações, foi usada a linguagem de programação python.\\ 
+Os parâmetros Q, R e B usados para calcular a matriz P foram dados pelo trabalho base e A foi extraído da equação $\dot y = Ay + G(x,\tilde{x})y + Bu$.
+
+Abaixo segue a trajetória ótima do sistema, que leva os pontos iniciais (0.95, 0.25, 0.15) ao ponto de equilíbrio que representa a cura do paciente$(\dfrac{1}{b_2}, 0, \dfrac{s}{d_1})$.
+
+\begin{center}
+\begin{figure}[!h]
+	\centering
+    \includegraphics[scale=0.4]{imgs/plot_otm_1.png}
+
+  \end{figure}
+
+
+Figura 4.6 - Gráfico do controle ótimo linear na dinâmica de crescimento de tumor.
+\end{center}
+
+
 \newpage
 
 \section{Resultados e discussões }
-\section{Conclusões}
-\section{Perspectivas}
+
+Os gráficos apresentados na sessão anterior, foram reproduzidos com os dados do trabalho base e já tiveram seus dados devidamente discutidos.
+Esta sessão, portanto, dedica-se a discussão de variações em dados das simulações feitas anteriormente.\
+
+Para estudar o comportamento do modelo partindo de diferentes pontos iniciais, foram feitas novas simulações com 40 pontos iniciais diferentes. Essa observação foi feita para estimular novos questionamentos para trabalhos futuros (por exemplo: "Qual o valor mínimo inicial do tumor, para que o sistema seja levado ao ponto de equilíbrio de morte?" , "Qual o valor mínimo inicial de células imunes de forma que o tumor não evolua ao ponto de equilíbrio de morte?", "Existindo tal ponto, seria possível incluir uma nova terapia, associada a radioterapia, com o objetivo de aumentar as células imunoterápicas e reduzir o uso da radioterapia?").\
+A seguir os resultados obtidos com as simulações.
+
+
+\begin{center}
+\begin{figure}[tbh!]
+	\centering
+    \includegraphics[scale=0.4]{imgs/res_1.png}
+
+  \end{figure}
+
+Figura 5.1 - Desenvolvimento das células normais, tumorais e imunológicas, respectivamente, em relação ao tempo.
+\end{center}
+
+\begin{center}
+\begin{figure}[tbh!]
+	\centering
+    \includegraphics[scale=0.4]{imgs/res_2.png}
+
+  \end{figure}
+
+Figura 5.2 - Desenvolvimento das células normais, tumorais e imunológicas, respectivamente, em relação ao tempo.
+\end{center}
+\newpage
+
+\begin{center}
+\begin{figure}[tbh!]
+	\centering
+    \includegraphics[scale=0.4]{imgs/res_3.png}
+
+  \end{figure}
+
+Figura 5.3 - Desenvolvimento das células normais, tumorais e imunológicas, respectivamente, em relação ao tempo.
+\end{center}
+
+\begin{center}
+\begin{figure}[tbh!]
+	\centering
+    \includegraphics[scale=0.4]{imgs/res_4.png}
+
+  \end{figure}
+
+Figura 5.4 - Desenvolvimento das células normais, tumorais e imunológicas, respectivamente, em relação ao tempo.
+\end{center}
+
+Todo o código desenvolvido, nas etapas desse trabalho, foi disponibilizado no link: https://github.com/vdscruz/pibic-2018/tree/master/codigos. Para que possa ser usado em trabalhos posteriores
 
 \newpage
 
-\section{Referências bibliográficas}
-\bibliography{pibic-2018.bib}
+\section{Conclusões}
+
+Coletivamente, nossos resultados demonstram que o aprendizado foi alcançado. Nesse contexto, novos estudos são necessários no sentido de aprimorar o uso do controle ótimo em novos modelos de forma a contribuir com novos trabalhos.
+
+\newpage
+
+\section{Perspectivas}
+
+Diante dos desdobramentos do trabalho, sugerem-se as seguintes perspectivas:
+\begin{itemize}
+\item Aplicação do controle ótimo no momento da aplicação da radioterapia;
+\item Encontrar melhor protocolo, com variação da dose fracionada tendo o controle como referencia;
+\item Incluir ao modelo outros métodos de tratamento paralelo ao da radioterapia e avaliar o controle ótimo com o intuito de reduzir as doses radioterápicas
+\end{itemize}	
 	
 \newpage
 
@@ -615,5 +757,11 @@ Além dos encontros em sala para apresentação do conteúdo introdutório ao as
 participei, como atividade complementar, do 27º Encontro de Iniciação Científica da UFS.
 Minicurso sobre GERENCIAMENTO DE REFERÊNCIAS BIBLIOGRÁFICAS PARA
 TRABALHOS DE PESQUISA E ARTIGOS CIENTÍFICOS. No dia 21/11/2017. E do II SSMAC 2018 (Série de Seminários de Matemática Aplicada e Computacional). Palestra sobre UM MODELO PARA CONSTRUIR FOTOGRAFIAS PANORÂMICAS. Dia 20/04/2018.\
+
+\newpage
+
+\bibliographystyle{IEEEtran}
+\bibliography{pibic2018}
+
 
 \end{document}
